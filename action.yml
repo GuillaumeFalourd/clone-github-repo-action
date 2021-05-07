@@ -22,5 +22,5 @@ runs:
         - ${{ inputs.access-token }}
 
 branding:
-    icon: 'terminal'
-    color: 'orange'
+    icon: 'download'
+    color: 'blue'
