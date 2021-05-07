@@ -1,5 +1,5 @@
 
-name: Clone Private Repository
+name: Clone Private Repository Workflow
 
 on:
   push:
