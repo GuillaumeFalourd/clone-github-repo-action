@@ -19,7 +19,7 @@ You can use one of those as reference:
 
 ### For a public repository
 
-```
+```bash
 - name: Clone GuillaumeFalourd/poc-github-actions PUBLIC repository
   uses: GuillaumeFalourd/clone-github-repo-action@v1
   with:
@@ -31,7 +31,7 @@ You can use one of those as reference:
 
 To use this action to clone a `PRIVATE` repository the Github User/Admin has access to, it's necessary to create a [PERSONAL ACCESS TOKEN](https://github.com/settings/tokens) with `REPOSITORY` scopes.
 
-```
+```bash
 - name: Clone GuillaumeFalourd/formulas-training PRIVATE repository
   uses: GuillaumeFalourd/clone-github-repo-action@v1
   with:
@@ -51,10 +51,10 @@ cd <repository-name>
 #### Step Example
 
 ```bash
-      - name: Access cloned repository content
-        run: |
-          cd <repository-name>
-          ls -l
+- name: Access cloned repository content
+  run: |
+    cd <repository-name>
+    ls -l
 ```
 
 ## Licensed
