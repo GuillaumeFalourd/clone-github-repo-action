@@ -8,9 +8,13 @@ Github Action to clone a public or private Github repository and access its cont
 
 ## How to use this action?
 
-To use this action to clone a PRIVATE repository, you need to create a [PERSONAL ACCESS TOKEN](https://github.com/settings/tokens) with REPOSITORY scopes.
+To use this action to clone a `PRIVATE` repository, you need to create a [PERSONAL ACCESS TOKEN](https://github.com/settings/tokens) with `REPOSITORY` scopes.
 
-Then, you can use the `cd <repository-name>` command to access the cloned repository content.
+Then, you can use the cloned repository command to access the cloned repository content.:
+
+```bash
+cd <repository-name>
+```
 
 ### For a public repository
 
