@@ -6,17 +6,16 @@
 
 ![Title](https://user-images.githubusercontent.com/22433243/117468930-900a9800-af2b-11eb-9bd4-0aa16465f952.png)
 
-Github Action to clone a public or private Github repository and access its content on other workflows.
+Github Action to clone a **public** or **private** Github repository and access its content on other workflows.
 
 ## How to use this action?
 
-To use this action to clone a `PRIVATE` repository, you need to create a [PERSONAL ACCESS TOKEN](https://github.com/settings/tokens) with `REPOSITORY` scopes.
+Create a new `.yml` file on your `.github/workflows` directory.
 
-Then, you can use the cloned repository command to access the cloned repository content.:
+You can use one of those as reference:
 
-```bash
-cd <repository-name>
-```
+- [Clone Public Repo Workflow](https://github.com/GuillaumeFalourd/clone-github-repo-action/blob/main/.github/workflows/public-repo.yml)
+- [Clone Private Repo Workflow](https://github.com/GuillaumeFalourd/clone-github-repo-action/blob/main/.github/workflows/private-repo.yml)
 
 ### For a public repository
 
@@ -30,6 +29,8 @@ cd <repository-name>
 
 ### For a private repository
 
+To use this action to clone a `PRIVATE` repository, you need to create a [PERSONAL ACCESS TOKEN](https://github.com/settings/tokens) with `REPOSITORY` scopes.
+
 ```bash
       - name: Clone GuillaumeFalourd/formulas-training PRIVATE repository
         uses: GuillaumeFalourd/clone-github-repo-action@main
@@ -37,6 +38,23 @@ cd <repository-name>
           owner: 'GuillaumeFalourd'
           repository: 'formulas-training'
           access-token: ${{ secrets.ACCESS_TOKEN }}
+```
+
+### Access repository content
+
+After using this action in your workflow, you can use the following command to access the cloned repository content:
+
+```bash
+cd <repository-name>
+```
+
+#### Step Example
+
+```bash
+      - name: Access cloned repository content
+        run: |
+          cd <repository-name>
+          ls -l
 ```
 
 ## Licensed
