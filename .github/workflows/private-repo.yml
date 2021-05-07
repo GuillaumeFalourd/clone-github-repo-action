@@ -1,0 +1,26 @@
+
+name: Clone Private Repository
+
+on:
+  push:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+jobs:
+    
+  job-public-repo:
+    runs-on: ubuntu-latest
+    steps:
+      
+      - name: Clone GuillaumeFalourd/formulas-training PRIVATE repository
+        uses: GuillaumeFalourd/clone-github-repo-action@main
+        with:
+          owner: 'GuillaumeFalourd'
+          repository: 'formulas-training'
+          access-token: ${{ secrets.ACCESS_TOKEN }}
+      
+      - name: Access cloned repository content
+        run: |
+          cd formulas-training
+          ls -l

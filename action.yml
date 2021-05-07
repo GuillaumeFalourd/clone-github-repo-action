@@ -1,0 +1,26 @@
+name: 'Clone Github Repo Action'
+
+description: 'Github Action to clone a public or private Github repository and access its content on other workflows.'
+
+inputs:
+    owner:
+        description: 'Repository Owner'
+        required: true
+    repository:
+        description: 'Repository name'
+        required: true
+    access-token:
+        description: 'PAT with repository scope (https://github.com/settings/tokens)'
+        required: false
+
+runs:
+    using: 'docker'
+    image: 'Dockerfile'
+    args:
+        - ${{ inputs.owner }}
+        - ${{ inputs.repository }}
+        - ${{ inputs.access-token }}
+
+branding:
+    icon: 'terminal'
+    color: 'orange'

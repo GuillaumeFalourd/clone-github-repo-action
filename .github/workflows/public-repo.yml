@@ -1,0 +1,25 @@
+
+name: Clone Public Repository
+
+on:
+  push:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+jobs:
+    
+  job-public-repo:
+    runs-on: ubuntu-latest
+    steps:
+      
+      - name: Clone GuillaumeFalourd/poc-github-actions PUBLIC repository
+        uses: GuillaumeFalourd/clone-github-repo-action@main
+        with:
+          owner: 'GuillaumeFalourd'
+          repository: 'poc-github-actions'
+      
+      - name: Access cloned repository content
+        run: |
+          cd poc-github-actions
+          ls -l
