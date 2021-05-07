@@ -29,7 +29,7 @@ You can use one of those as reference:
 
 ### For a private repository
 
-To use this action to clone a `PRIVATE` repository, you need to create a [PERSONAL ACCESS TOKEN](https://github.com/settings/tokens) with `REPOSITORY` scopes.
+To use this action to clone a `PRIVATE` repository the Github User/Admin has access to, it's necessary to create a [PERSONAL ACCESS TOKEN](https://github.com/settings/tokens) with `REPOSITORY` scopes.
 
 ```bash
       - name: Clone GuillaumeFalourd/formulas-training PRIVATE repository
