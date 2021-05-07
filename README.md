@@ -21,7 +21,7 @@ You can use one of those as reference:
 
 ```bash
 - name: Clone GuillaumeFalourd/poc-github-actions PUBLIC repository
-        uses: GuillaumeFalourd/clone-github-repo-action@main
+        uses: GuillaumeFalourd/clone-github-repo-action@v1
         with:
           owner: 'GuillaumeFalourd'
           repository: 'poc-github-actions'
@@ -33,7 +33,7 @@ To use this action to clone a `PRIVATE` repository, you need to create a [PERSON
 
 ```bash
       - name: Clone GuillaumeFalourd/formulas-training PRIVATE repository
-        uses: GuillaumeFalourd/clone-github-repo-action@main
+        uses: GuillaumeFalourd/clone-github-repo-action@v1
         with:
           owner: 'GuillaumeFalourd'
           repository: 'formulas-training'
