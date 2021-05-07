@@ -4,6 +4,8 @@
 
 [![Clone Private Repository](https://github.com/GuillaumeFalourd/clone-github-repo-action/actions/workflows/private-repo.yml/badge.svg)](https://github.com/GuillaumeFalourd/clone-github-repo-action/actions/workflows/private-repo.yml)
 
+![Title](https://user-images.githubusercontent.com/22433243/117468930-900a9800-af2b-11eb-9bd4-0aa16465f952.png)
+
 Github Action to clone a public or private Github repository and access its content on other workflows.
 
 ## How to use this action?
