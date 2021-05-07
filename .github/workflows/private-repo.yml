@@ -22,5 +22,8 @@ jobs:
       
       - name: Access cloned repository content
         run: |
+          echo "ROOT"
+          ls -l
+          echo "CLONED REPO"
           cd formulas-training
           ls -l

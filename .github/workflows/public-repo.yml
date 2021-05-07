@@ -21,5 +21,8 @@ jobs:
       
       - name: Access cloned repository content
         run: |
+          echo "ROOT"
+          ls -l
+          echo "CLONED REPO"
           cd poc-github-actions
           ls -l
