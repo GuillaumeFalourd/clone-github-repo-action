@@ -1,6 +1,6 @@
 name: 'Clone Github Repo Action'
 
-description: 'Github Action to clone a public or private Github repository and access its content on other workflows.'
+description: 'Github Action to clone a public or private Github repository and access its content on other repositories workflows.'
 
 inputs:
     owner:
