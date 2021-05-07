@@ -8,7 +8,7 @@ fi
 
 if [ -d "$2" ]; then
     echo "Cloned $2 repository successfully."
-    echo "Access the repository content usind `cd $2`." 
+    echo "Access the repository content using \"cd $2\"." 
 else
     echo "Error: Couldn't clone $2 repository. Check the PAT scope."
     exit 1
