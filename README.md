@@ -12,6 +12,12 @@ Github Action to clone a **public** or **private** Github repository and access 
 
 Create a new `.yml` file on your `.github/workflows` directory.
 
+Field | Mandatory | Observation
+------------ | ------------  | -------------
+**owner** | YES | Ex: `octocat`
+**repository** | YES | Ex: `open-issue-action`
+**access-token** | NO | [How to create a PAT](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
+
 You can use one of those as reference:
 
 - [Clone Public Repo Workflow](https://github.com/GuillaumeFalourd/clone-github-repo-action/blob/main/.github/workflows/public-repo.yml)
