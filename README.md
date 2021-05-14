@@ -15,7 +15,7 @@ Create a new `.yml` file on your `.github/workflows` directory.
 Field | Mandatory | Observation
 ------------ | ------------  | -------------
 **owner** | YES | Ex: `octocat`
-**repository** | YES | Ex: `open-issue-action`
+**repository** | YES | Ex: `clone-github-repo-action`
 **access-token** | NO | [How to create a PAT](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
 
 You can use one of those as reference:
