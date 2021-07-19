@@ -8,7 +8,7 @@
 
 Github Action to clone a **public** or **private** Github repository and access its content on others repositories' workflows.
 
-☞ [Who is using this action? (public repo)](https://github.com/search?q=clone-github-repo-action+path%3A.github%2Fworkflows+language%3AYAML&type=code)
+☞ [Who is using this action? (public repositories)](https://github.com/search?q=clone-github-repo-action+path%3A.github%2Fworkflows+language%3AYAML&type=code)
 
 ## How to use this action?
 
