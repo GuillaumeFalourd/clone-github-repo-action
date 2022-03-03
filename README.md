@@ -10,6 +10,10 @@ Github Action to clone a **public** or **private** Github repository and access 
 
 [![Public workflows that use this action.](https://img.shields.io/endpoint?url=https%3A%2F%2Fapi-endbug.vercel.app%2Fapi%2Fgithub-actions%2Fused-by%3Faction%3DGuillaumeFalourd%2Fclone-github-repo-action%26badge%3Dtrue)](https://github.com/search?o=desc&q=GuillaumeFalourd+clone-github-repo-action+path%3A.github%2Fworkflows+language%3AYAML&s=&type=Code) ☞ [Who is using this action? (public repositories)](https://github.com/search?q=clone-github-repo-action+path%3A.github%2Fworkflows+language%3AYAML&type=code)
 
+## What changed with the action `v2` ?
+
+This action `v2` is using a **composite action** to be compatible with all operating systems (the `v1` was using a **Dockerfile** that was only compatible with `ubuntu-*` runners).
+
 ## How to use this action?
 
 Create a new `.yml` file on your `.github/workflows` directory.
@@ -29,7 +33,7 @@ You can use one of those as reference:
 
 ```bash
 - name: Clone GuillaumeFalourd/poc-github-actions PUBLIC repository
-  uses: GuillaumeFalourd/clone-github-repo-action@v1
+  uses: GuillaumeFalourd/clone-github-repo-action@v2
   with:
     owner: 'GuillaumeFalourd'
     repository: 'poc-github-actions'
@@ -41,7 +45,7 @@ To use this action to clone a `PRIVATE` repository the Github User/Admin has acc
 
 ```bash
 - name: Clone GuillaumeFalourd/formulas-training PRIVATE repository
-  uses: GuillaumeFalourd/clone-github-repo-action@v1
+  uses: GuillaumeFalourd/clone-github-repo-action@v2
   with:
     owner: 'GuillaumeFalourd'
     repository: 'formulas-training'
@@ -62,7 +66,7 @@ cd <repository-name>
 - name: Access cloned repository content
   run: |
     cd <repository-name>
-    ls -l
+    ls -la
 ```
 
 ## Licensed
