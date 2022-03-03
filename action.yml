@@ -14,12 +14,24 @@ inputs:
         required: false
 
 runs:
-    using: 'docker'
-    image: 'Dockerfile'
-    args:
-        - ${{ inputs.owner }}
-        - ${{ inputs.repository }}
-        - ${{ inputs.access-token }}
+    using: 'composite'
+    steps:
+    - name: Clone repository
+      run: |
+        if [ -z "${{ inputs.access-token }}" ]; then
+            git clone https://github.com/${{ inputs.owner }}/${{ inputs.repository }}.git
+        else
+            git clone https://${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git
+        fi
+
+        if [ -d "${{ inputs.repository }}" ]; then
+            echo "Cloned ${{ inputs.repository }} repository successfully."
+            echo "Access the repository content using \"cd ${{ inputs.repository }}\"." 
+        else
+            echo "Error: Couldn't clone ${{ inputs.repository }} repository. Check the inputs or the PAT scope."
+            exit 1
+        fi
+      shell: bash
 
 branding:
     icon: 'download'
