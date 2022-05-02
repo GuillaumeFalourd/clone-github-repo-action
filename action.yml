@@ -31,12 +31,12 @@ runs:
         fi
         
         if [ -z "${{ inputs.access-token }}" ]; then
-            git clone https://github.com/${{ inputs.owner }}/${{ inputs.repository }}.git ${{ inputs.path-to-clone }}
+            git clone https://github.com/${{ inputs.owner }}/${{ inputs.repository }}.git "${{ inputs.path-to-clone }}"
         else
-            git clone https://${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git ${{ inputs.path-to-clone }}
+            git clone https://${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git "${{ inputs.path-to-clone }}"
         fi
 
-        if [ -d "${{ inputs.repository }}" ]; then
+        if [ -d "${{ inputs.repository }}" ] || [ -d "${{ inputs.path-to-clone }}" ]; then
             echo "Cloned ${{ inputs.repository }} repository successfully."
             if [ -z "${{ inputs.path-to-clone }}" ]; then
                 echo "Access the repository content using \"cd ${{ inputs.repository }}\"."
