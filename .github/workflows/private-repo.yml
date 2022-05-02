@@ -14,7 +14,7 @@ jobs:
     steps:
       
       - name: Clone GuillaumeFalourd/formulas-training PRIVATE repository
-        uses: GuillaumeFalourd/clone-github-repo-action@v2
+        uses: GuillaumeFalourd/clone-github-repo-action@v3
         with:
           owner: 'GuillaumeFalourd'
           repository: 'formulas-training'
@@ -33,7 +33,7 @@ jobs:
     steps:
       
       - name: Clone GuillaumeFalourd/formulas-training PRIVATE repository
-        uses: GuillaumeFalourd/clone-github-repo-action@v2
+        uses: GuillaumeFalourd/clone-github-repo-action@v3
         with:
           owner: 'GuillaumeFalourd'
           repository: 'formulas-training'
@@ -52,7 +52,7 @@ jobs:
     steps:
       
       - name: Clone GuillaumeFalourd/formulas-training PRIVATE repository
-        uses: GuillaumeFalourd/clone-github-repo-action@v2
+        uses: GuillaumeFalourd/clone-github-repo-action@v3
         with:
           owner: 'GuillaumeFalourd'
           repository: 'formulas-training'

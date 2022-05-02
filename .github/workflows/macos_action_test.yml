@@ -12,7 +12,7 @@ jobs:
     steps:
       
       - name: Clone GuillaumeFalourd/poc-github-actions PUBLIC repository
-        uses: GuillaumeFalourd/clone-github-repo-action@v2
+        uses: GuillaumeFalourd/clone-github-repo-action@v3
         with:
           owner: 'GuillaumeFalourd'
           repository: 'poc-github-actions'
@@ -30,7 +30,7 @@ jobs:
     steps:
       
       - name: Clone GuillaumeFalourd/formulas-training PRIVATE repository
-        uses: GuillaumeFalourd/clone-github-repo-action@v2
+        uses: GuillaumeFalourd/clone-github-repo-action@v3
         with:
           owner: 'GuillaumeFalourd'
           repository: 'formulas-training'
