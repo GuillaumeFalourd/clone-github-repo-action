@@ -28,13 +28,12 @@ runs:
                 echo "PATH ${{ inputs.path-to-clone }} DOES NOT exist in the workspace: ${{ github.workspace }}"
                 exit 1
             fi
-            PATH="${{ inputs.path-to-clone }}"
         fi
         
         if [ -z "${{ inputs.access-token }}" ]; then
-            git clone https://github.com/${{ inputs.owner }}/${{ inputs.repository }}.git "$PATH"
+            git clone https://github.com/${{ inputs.owner }}/${{ inputs.repository }}.git ${{ inputs.path-to-clone }}
         else
-            git clone https://${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git "$PATH"
+            git clone https://${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git ${{ inputs.path-to-clone }}
         fi
 
         if [ -d "${{ inputs.repository }}" ]; then
