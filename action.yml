@@ -22,7 +22,7 @@ runs:
     - name: Clone repository
       run: |
         if [ -z "${{ inputs.path-to-clone }}" ]; then
-            PATH=.
+            PATH=""
         else
             if [ ! -d "${{ inputs.path-to-clone }}" ]; then
                 echo "PATH ${{ inputs.path-to-clone }} DOES NOT exist in the workspace: ${{ github.workspace }}"

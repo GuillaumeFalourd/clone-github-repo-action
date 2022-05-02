@@ -58,7 +58,13 @@ jobs:
   job-PATH-SUCCESS:
     runs-on: ubuntu-latest
     steps:
-      - run: mkdir path/to/clone   
+      - run: |
+          mkdir path
+          cd path
+          mkdir to
+          cd to
+          mkdir clone
+          cd clone          
       - name: Clone GuillaumeFalourd/poc-github-actions PUBLIC repository
         uses: GuillaumeFalourd/clone-github-repo-action@v3
         with:
