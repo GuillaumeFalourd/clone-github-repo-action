@@ -22,19 +22,19 @@ runs:
     - name: Clone repository
       run: |
         if [ -z "${{ inputs.path-to-clone }}" ]; then
-            PATH=""
+            echo "No path to clone provided."
         else
             if [ ! -d "${{ inputs.path-to-clone }}" ]; then
                 echo "PATH ${{ inputs.path-to-clone }} DOES NOT exist in the workspace: ${{ github.workspace }}"
                 exit 1
             fi
-            PATH=${{ inputs.path-to-clone }}
+            PATH="${{ inputs.path-to-clone }}"
         fi
         
         if [ -z "${{ inputs.access-token }}" ]; then
-            git clone https://github.com/${{ inputs.owner }}/${{ inputs.repository }}.git $PATH
+            git clone https://github.com/${{ inputs.owner }}/${{ inputs.repository }}.git "$PATH"
         else
-            git clone https://${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git $PATH
+            git clone https://${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git "$PATH"
         fi
 
         if [ -d "${{ inputs.repository }}" ]; then
