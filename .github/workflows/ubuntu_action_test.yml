@@ -71,3 +71,10 @@ jobs:
           owner: 'GuillaumeFalourd'
           repository: 'poc-github-actions'
           path-to-clone: 'path/to/clone'
+      - name: Access cloned repository content
+        run: |
+          echo "ROOT"
+          ls -la
+          echo "CLONED REPO"
+          cd path/to/clone
+          ls -la

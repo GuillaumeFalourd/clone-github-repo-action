@@ -31,9 +31,9 @@ runs:
         fi
         
         if [ -z "${{ inputs.access-token }}" ]; then
-            git clone https://github.com/${{ inputs.owner }}/${{ inputs.repository }}.git "${{ inputs.path-to-clone }}"
+            git clone https://github.com/${{ inputs.owner }}/${{ inputs.repository }}.git ${{ inputs.path-to-clone }}
         else
-            git clone https://${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git "${{ inputs.path-to-clone }}"
+            git clone https://${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git ${{ inputs.path-to-clone }}
         fi
 
         if [ -d "${{ inputs.repository }}" ] || [ -d "${{ inputs.path-to-clone }}" ]; then
