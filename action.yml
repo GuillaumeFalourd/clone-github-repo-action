@@ -12,21 +12,38 @@ inputs:
     access-token:
         description: 'PAT with repository scope (https://github.com/settings/tokens)'
         required: false
+    path-to-clone:
+        description: 'PATH to clone the repository to.'
+        required: false
 
 runs:
     using: 'composite'
     steps:
     - name: Clone repository
       run: |
-        if [ -z "${{ inputs.access-token }}" ]; then
-            git clone https://github.com/${{ inputs.owner }}/${{ inputs.repository }}.git
+        if [ -z "${{ inputs.path-to-clone }}" ]; then
+            PATH=.
         else
-            git clone https://${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git
+            if [ ! -d "${{ inputs.path-to-clone }}" ]; then
+                echo "PATH ${{ inputs.path-to-clone }} DOES NOT exist in the workspace: ${{ github.workspace }}"
+                exit 1
+            fi
+            PATH=${{ inputs.path-to-clone }}
+        fi
+        
+        if [ -z "${{ inputs.access-token }}" ]; then
+            git clone https://github.com/${{ inputs.owner }}/${{ inputs.repository }}.git $PATH
+        else
+            git clone https://${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git $PATH
         fi
 
         if [ -d "${{ inputs.repository }}" ]; then
             echo "Cloned ${{ inputs.repository }} repository successfully."
-            echo "Access the repository content using \"cd ${{ inputs.repository }}\"." 
+            if [ -z "${{ inputs.path-to-clone }}" ]; then
+                echo "Access the repository content using \"cd ${{ inputs.repository }}\"."
+            else
+                echo "Access the repository content using \"cd ${{ inputs.path-to-clone }}\"."
+            fi 
         else
             echo "Error: Couldn't clone ${{ inputs.repository }} repository. Check the inputs or the PAT scope."
             exit 1

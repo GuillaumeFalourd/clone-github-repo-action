@@ -1,0 +1,45 @@
+name: Action test on Macos
+
+on:
+  push:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  job-public-repo-macos:
+    runs-on: macos-latest
+    steps:
+      
+      - name: Clone GuillaumeFalourd/poc-github-actions PUBLIC repository
+        uses: GuillaumeFalourd/clone-github-repo-action@v2
+        with:
+          owner: 'GuillaumeFalourd'
+          repository: 'poc-github-actions'
+      
+      - name: Access cloned repository content
+        run: |
+          echo "ROOT"
+          ls -la
+          echo "CLONED REPO"
+          cd poc-github-actions
+          ls -la
+    
+  job-private-repo-macos:
+    runs-on: macos-latest
+    steps:
+      
+      - name: Clone GuillaumeFalourd/formulas-training PRIVATE repository
+        uses: GuillaumeFalourd/clone-github-repo-action@v2
+        with:
+          owner: 'GuillaumeFalourd'
+          repository: 'formulas-training'
+          access-token: ${{ secrets.ACCESS_TOKEN }}
+      
+      - name: Access cloned repository content
+        run: |
+          echo "ROOT"
+          ls -la
+          echo "CLONED REPO"
+          cd formulas-training
+          ls -la
