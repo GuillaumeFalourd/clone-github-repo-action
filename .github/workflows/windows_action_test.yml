@@ -24,6 +24,7 @@ jobs:
           echo "CLONED REPO"
           cd poc-github-actions
           ls -la
+        shell: bash
     
   job-private-repo-windows:
     runs-on: windows-latest
@@ -43,6 +44,7 @@ jobs:
           echo "CLONED REPO"
           cd formulas-training
           ls -la
+        shell: bash
 
   job-with-path:
     runs-on: windows-latest
@@ -55,6 +57,7 @@ jobs:
           cd to
           mkdir clone
           cd clone          
+        shell: bash
       
       - name: Clone GuillaumeFalourd/poc-github-actions PUBLIC repository
         uses: GuillaumeFalourd/clone-github-repo-action@v3
@@ -70,3 +73,4 @@ jobs:
           echo "CLONED REPO"
           cd path/to/clone
           ls -la
+        shell: bash
