@@ -26,8 +26,10 @@ runs:
             echo "No path to clone provided."
         else
             if [ ! -d "${{ inputs.path-to-clone }}" ]; then
-                echo "PATH ${{ inputs.path-to-clone }} DOES NOT exist in the workspace: ${{ github.workspace }}"
-                exit 1
+                mkdir ${{ inputs.path-to-clone }}
+                if [ ! -d "${{ inputs.path-to-clone }}" ]; then
+                    echo "PATH ${{ inputs.path-to-clone }} DOES NOT exist in the workspace: ${{ github.workspace }} and couldn't be created automatically."
+                    exit 1
             fi
         fi
         
