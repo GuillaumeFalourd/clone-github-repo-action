@@ -6,8 +6,6 @@
 
 Github Action to clone a **public** or **private** Github repository and access its content on others repositories' workflows.
 
-[![Public workflows that use this action.](https://img.shields.io/endpoint?url=https%3A%2F%2Fapi-endbug.vercel.app%2Fapi%2Fgithub-actions%2Fused-by%3Faction%3DGuillaumeFalourd%2Fclone-github-repo-action%26badge%3Dtrue)](https://github.com/search?o=desc&q=GuillaumeFalourd+clone-github-repo-action+path%3A.github%2Fworkflows+language%3AYAML&s=&type=Code) ☞ [Who is using this action? (public repositories)](https://github.com/search?q=clone-github-repo-action+path%3A.github%2Fworkflows+language%3AYAML&type=code)
-
 ## What changed with the action `v2` ?
 
 This action `v2` is using a **composite action** to be compatible with all operating systems (the `v1` was using a **Dockerfile** that was only compatible with `ubuntu-*` runners).
