@@ -65,6 +65,10 @@ cd <repository-name>
     ls -la
 ```
 
+## Contributing
+
+☞ [Guidelines](https://github.com/GuillaumeFalourd/clone-github-repo-action/blob/main/CONTRIBUTING.md)
+
 ## Licensed
 
 ☞ This repository uses the [Apache License 2.0](https://github.com/GuillaumeFalourd/aws-cliaction/blob/main/LICENSE)
