@@ -22,14 +22,18 @@ runs:
     - name: Clone repository
       run: |
         if [ -z "${{ inputs.access-token }}" ]; then
-            git clone https://github.com/${{ inputs.owner }}/${{ inputs.repository }}.git
             if [ -z "${{ inputs.branch }}" ]; then
                 git clone https://github.com/${{ inputs.owner }}/${{ inputs.repository }}.git
             else
-                git clone https://${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git -b ${{ inputs.branch }}
+                git clone https://github.com/${{ inputs.owner }}/${{ inputs.repository }}.git -b ${{ inputs.branch }}
             fi
         else
             git clone https://${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git
+            if [ -z "${{ inputs.branch }}" ]; then
+                git clone https://${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git
+            else
+                git clone https://${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git -b ${{ inputs.branch }}
+            fi
         fi
 
         if [ -d "${{ inputs.repository }}" ]; then
