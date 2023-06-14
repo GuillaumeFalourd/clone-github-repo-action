@@ -19,6 +19,7 @@ Field | Mandatory | Observation
 **owner** | YES | Ex: `octocat`
 **repository** | YES | Ex: `clone-github-repo-action`
 **access-token** | NO | [How to create a PAT](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
+**branch** | NO | Ex: `main`
 
 You can use one of those as reference:
 
