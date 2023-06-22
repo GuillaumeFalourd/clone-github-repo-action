@@ -57,11 +57,7 @@ jobs:
       
       - name: Access cloned repository content
         run: |
-          echo "ROOT"
-          ls -la
-          echo "CLONED REPO"
-          cd poc-github-actions
-          ls -la
+          ls
 
   job-public-repo-ubuntu-branch:
     runs-on: ubuntu-latest
@@ -108,8 +104,4 @@ jobs:
           branch: '3.10'
       - name: Access cloned repository content
         run: |
-          echo "ROOT"
-          ls -la
-          echo "CLONED REPO"
-          cd python-docs-zh-cn
-          ls -la
+          ls

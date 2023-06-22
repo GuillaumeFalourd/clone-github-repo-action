@@ -22,6 +22,7 @@ runs:
     - name: Missing required value
       if: ${{ github.event.inputs.owner == '' || github.event.inputs.repository == '' }}
       run: echo "Missing Required Value!"
+      shell: bash
     - name: Clone repository
       if: ${{ github.event.inputs.owner != '' && github.event.inputs.repository != '' }}
       run: |
