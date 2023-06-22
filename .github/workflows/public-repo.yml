@@ -66,9 +66,9 @@ jobs:
       - name: Clone GuillaumeFalourd/poc-github-actions PUBLIC repository
         uses: lipeilin375/clone-github-repo-action@main
         with:
-          owner: 'GuillaumeFalourd'
-          repository: 'poc-github-actions'
-          branch: 'dev'
+          owner: GuillaumeFalourd
+          repository: poc-github-actions
+          branch: dev
       
       - name: Access cloned repository content
         run: |
@@ -85,9 +85,9 @@ jobs:
       - name: Clone GuillaumeFalourd/poc-github-actions PUBLIC repository
         uses: lipeilin375/clone-github-repo-action@main
         with:
-          owner: 'GuillaumeFalourd'
-          repository: 'poc-github-actions'
-          branch: 'dev'
+          owner: GuillaumeFalourd
+          repository: poc-github-actions
+          branch: dev
       
       - name: Access cloned repository content
         run: |
@@ -104,9 +104,9 @@ jobs:
       - name: Clone GuillaumeFalourd/poc-github-actions PUBLIC repository
         uses: lipeilin375/clone-github-repo-action@main
         with:
-          owner: 'GuillaumeFalourd'
-          repository: 'poc-github-actions'
-          branch: 'dev'
+          owner: GuillaumeFalourd
+          repository: poc-github-actions
+          branch: dev
       
       - name: Access cloned repository content
         run: |
