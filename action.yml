@@ -15,7 +15,6 @@ inputs:
     depth:
         description: 'Depth of the clone (default: full history)'
         required: false
-        default: ''
 
 runs:
     using: 'composite'
