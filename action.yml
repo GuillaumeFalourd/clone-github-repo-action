@@ -12,6 +12,10 @@ inputs:
     access-token:
         description: 'PAT with repository scope (https://github.com/settings/tokens)'
         required: false
+    depth:
+        description: 'Depth of the clone (default: full history)'
+        required: false
+        default: ''
 
 runs:
     using: 'composite'
@@ -19,9 +23,9 @@ runs:
     - name: Clone repository
       run: |
         if [ -z "${{ inputs.access-token }}" ]; then
-            git clone https://github.com/${{ inputs.owner }}/${{ inputs.repository }}.git
+            git clone --depth="${{ inputs.depth }}" https://github.com/${{ inputs.owner }}/${{ inputs.repository }}.git
         else
-            git clone https://${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git
+            git clone --depth="${{ inputs.depth }}" https://${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git
         fi
 
         if [ -d "${{ inputs.repository }}" ]; then
