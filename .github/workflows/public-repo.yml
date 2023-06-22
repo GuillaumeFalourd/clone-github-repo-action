@@ -62,4 +62,54 @@ jobs:
           echo "CLONED REPO"
           cd poc-github-actions
           ls -la
-        shell: bash
+
+  job-public-repo-ubuntu-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone python/python-docs-zh-cn PUBLIC repository with branch "3.10"
+        uses: lipeilin375/clone-github-repo-action@main
+        with:
+          owner: 'python'
+          repository: 'python-docs-zh-cn'
+          branch: '3.10'
+      - name: Access cloned repository content
+        run: |
+          echo "ROOT"
+          ls -la
+          echo "CLONED REPO"
+          cd python-docs-zh-cn
+          ls -la
+
+  job-public-repo-macos-branch:
+    runs-on: macos-latest
+    steps:
+      - name: Clone python/python-docs-zh-cn PUBLIC repository with branch "3.10"
+        uses: lipeilin375/clone-github-repo-action@main
+        with:
+          owner: 'python'
+          repository: 'python-docs-zh-cn'
+          branch: '3.10'
+      - name: Access cloned repository content
+        run: |
+          echo "ROOT"
+          ls -la
+          echo "CLONED REPO"
+          cd python-docs-zh-cn
+          ls -la
+
+  job-public-repo-windows-branch:
+    runs-on: windows-latest
+    steps:
+      - name: Clone python/python-docs-zh-cn PUBLIC repository with branch "3.10"
+        uses: lipeilin375/clone-github-repo-action@main
+        with:
+          owner: 'python'
+          repository: 'python-docs-zh-cn'
+          branch: '3.10'
+      - name: Access cloned repository content
+        run: |
+          echo "ROOT"
+          ls -la
+          echo "CLONED REPO"
+          cd python-docs-zh-cn
+          ls -la

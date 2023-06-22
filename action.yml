@@ -3,48 +3,38 @@ name: 'Clone Github Repo Action'
 description: "Github Action to clone a public or private Github repository and access its content on others repositories' workflows."
 
 inputs:
-    owner:
-        description: 'Repository Owner'
-        required: true
-    repository:
-        description: 'Repository name'
-        required: true
-    access-token:
-        description: 'PAT with repository scope (https://github.com/settings/tokens)'
-        required: false
-    branch:
-        desciption: 'Repository Branch'
-        required: false
+  owner:
+    description: 'Repository Owner'
+    required: true
+  repository:
+    description: 'Repository name'
+    required: true
+  access-token:
+    description: 'PAT with repository scope (https://github.com/settings/tokens)'
+    required: false
+  branch:
+    description: 'Repository Branch'
+    required: false
 
 runs:
-    using: 'composite'
-    steps:
+  using: 'composite'
+  steps:
+    - name: Missing required value
+      if: ${{ github.event.inputs.owner == '' || github.event.inputs.repository == '' }}
+      run: echo "Missing Required Value!"
     - name: Clone repository
+      if: ${{ github.event.inputs.owner != '' && github.event.inputs.repository != '' }}
       run: |
-        if [ -z "${{ inputs.access-token }}" ]; then
-            if [ -z "${{ inputs.branch }}" ]; then
-                git clone https://github.com/${{ inputs.owner }}/${{ inputs.repository }}.git
-            else
-                git clone https://github.com/${{ inputs.owner }}/${{ inputs.repository }}.git -b ${{ inputs.branch }}
-            fi
+        if [[ -z ${{ github.event.inputs.access-token }} && -z ${{ github.event.inputs.branch }} ]]; then
+          git clone https://github.com/${{ inputs.owner }}/${{ inputs.repository }}.git
+        elif [[ -z ${{ github.event.inputs.access-token }} && -n ${{ github.event.inputs.branch }} ]]; then
+          git clone https://github.com/${{ inputs.owner }}/${{ inputs.repository }}.git -b ${{ inputs.branch }}
+        elif [[ -n ${{ github.event.inputs.access-token }} && -z ${{ github.event.inputs.branch }} ]]; then
+          git clone https://${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git
         else
-            git clone https://${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git
-            if [ -z "${{ inputs.branch }}" ]; then
-                git clone https://${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git
-            else
-                git clone https://${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git -b ${{ inputs.branch }}
-            fi
-        fi
-
-        if [ -d "${{ inputs.repository }}" ]; then
-            echo "Cloned ${{ inputs.repository }} repository successfully."
-            echo "Access the repository content using \"cd ${{ inputs.repository }}\"." 
-        else
-            echo "Error: Couldn't clone ${{ inputs.repository }} repository. Check the inputs or the PAT scope."
-            exit 1
-        fi
+          git clone https://${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git -b ${{ inputs.branch }}
       shell: bash
 
 branding:
-    icon: 'download'
-    color: 'blue'
+  icon: 'download'
+  color: 'blue'
