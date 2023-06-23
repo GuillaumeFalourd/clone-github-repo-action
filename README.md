@@ -79,8 +79,8 @@ cd <repository-name>
 
 ☞ [Guidelines](https://github.com/GuillaumeFalourd/clone-github-repo-action/blob/main/CONTRIBUTING.md)
 
-<a href="https://github.com/GuillaumeFalourd/useful-actions/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=GuillaumeFalourd/useful-actions" />
+<a href="https://github.com/GuillaumeFalourd/clone-github-repo-action/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=GuillaumeFalourd/clone-github-repo-action" />
 </a>
 
 (Made with [contributors-img](https://contrib.rocks))
