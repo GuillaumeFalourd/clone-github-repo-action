@@ -6,6 +6,11 @@
 
 Github Action to clone a **public** or **private** Github repository and access its content on others repositories' workflows.
 
+## What changed with the action `v3` ?
+
+You now have a new input parameter called depth, which is optional and has an empty default value. If you specify a depth value when using the action, it will be passed as the value for the **--depth** parameter of the git clone command. Otherwise, the clone will be done with the default depth, which is the full history.
+
+
 ## What changed with the action `v2` ?
 
 This action `v2` is using a **composite action** to be compatible with all operating systems (the `v1` was using a **Dockerfile** that was only compatible with `ubuntu-*` runners).
@@ -17,7 +22,8 @@ Create a new `.yml` file on your `.github/workflows` directory.
 Field | Mandatory | Observation
 ------------ | ------------  | -------------
 **owner** | YES | Ex: `octocat`
-**repository** | YES | Ex: `clone-github-repo-action`
+**repository** | YES | Ex: `clone-github-repo-action` | 
+**depth** | NO | 1 `Ex: most recent commit`
 **access-token** | NO | [How to create a PAT](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
 
 You can use one of those as reference:
@@ -25,12 +31,13 @@ You can use one of those as reference:
 - [Clone Public Repo Workflow](https://github.com/GuillaumeFalourd/clone-github-repo-action/blob/main/.github/workflows/public-repo.yml)
 - [Clone Private Repo Workflow](https://github.com/GuillaumeFalourd/clone-github-repo-action/blob/main/.github/workflows/private-repo.yml)
 
-### For a public repository
+### For a public repository (with depth)
 
 ```bash
 - name: Clone GuillaumeFalourd/poc-github-actions PUBLIC repository
   uses: GuillaumeFalourd/clone-github-repo-action@v2
   with:
+    depth: 1
     owner: 'GuillaumeFalourd'
     repository: 'poc-github-actions'
 ```

@@ -1,38 +1,50 @@
-name: 'Clone Github Repo Action'
+name: 'Github Repo Action'
 
 description: "Github Action to clone a public or private Github repository and access its content on others repositories' workflows."
 
 inputs:
-    owner:
-        description: 'Repository Owner'
-        required: true
-    repository:
-        description: 'Repository name'
-        required: true
-    access-token:
-        description: 'PAT with repository scope (https://github.com/settings/tokens)'
-        required: false
+  owner:
+    description: 'Repository Owner'
+    required: true
+  repository:
+    description: 'Repository name'
+    required: true
+  access-token:
+    description: 'PAT with repository scope (https://github.com/settings/tokens)'
+    required: false
+  depth:
+    description: 'Depth of the clone (default: full history)'
+    required: false
+    default: ""
 
 runs:
-    using: 'composite'
-    steps:
+  using: 'composite'
+  steps:
     - name: Clone repository
       run: |
         if [ -z "${{ inputs.access-token }}" ]; then
+          if [ -z "${{ inputs.depth }}" ]; then
             git clone https://github.com/${{ inputs.owner }}/${{ inputs.repository }}.git
+          else
+            git clone --depth="${{ inputs.depth }}" https://github.com/${{ inputs.owner }}/${{ inputs.repository }}.git
+          fi
         else
+          if [ -z "${{ inputs.depth }}" ]; then
             git clone https://${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git
+          else
+            git clone --depth="${{ inputs.depth }}" https://${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git
+          fi
         fi
 
         if [ -d "${{ inputs.repository }}" ]; then
-            echo "Cloned ${{ inputs.repository }} repository successfully."
-            echo "Access the repository content using \"cd ${{ inputs.repository }}\"." 
+          echo "Cloned ${{ inputs.repository }} repository successfully."
+          echo "Access the repository content using \"cd ${{ inputs.repository }}\"." 
         else
-            echo "Error: Couldn't clone ${{ inputs.repository }} repository. Check the inputs or the PAT scope."
-            exit 1
+          echo "Error: Couldn't clone ${{ inputs.repository }} repository. Check the inputs or the PAT scope."
+          exit 1
         fi
       shell: bash
 
 branding:
-    icon: 'download'
-    color: 'blue'
+  icon: 'download'
+  color: 'blue'
