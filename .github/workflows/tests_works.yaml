@@ -16,6 +16,7 @@ jobs:
       - name: Clone whyakari/github-actions PUBLIC repository
         uses: whyakari/github-repo-action@v3
         with:
+          depth: 1
           owner: 'whyakari'
           repository: 'github-repo-action'
       
@@ -34,6 +35,7 @@ jobs:
       - name: Clone whyakari/github-actions PUBLIC repository
         uses: whyakari/github-repo-action@v3
         with:
+          depth: 1
           owner: 'whyakari'
           repository: 'github-repo-action'
       
@@ -48,10 +50,10 @@ jobs:
   job-public-repo-windows:
     runs-on: windows-latest
     steps:
-      
       - name: Clone whyakari/github-actions PUBLIC repository
         uses: whyakari/github-repo-action@v3
         with:
+          depth: 1
           owner: 'whyakari'
           repository: 'github-repo-action'
       
