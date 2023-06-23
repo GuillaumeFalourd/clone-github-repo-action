@@ -6,14 +6,13 @@
 
 Github Action to clone a **public** or **private** Github repository and access its content on others repositories' workflows.
 
-## What changed with the action `v3` ?
-
-You now have a new input parameter called depth, which is optional and has an empty default value. If you specify a depth value when using the action, it will be passed as the value for the **--depth** parameter of the git clone command. Otherwise, the clone will be done with the default depth, which is the full history.
-
-
 ## What changed with the action `v2` ?
 
 This action `v2` is using a **composite action** to be compatible with all operating systems (the `v1` was using a **Dockerfile** that was only compatible with `ubuntu-*` runners).
+
+### What changed with the action `v2.1` ?
+
+You now have a new input parameter called depth, which is optional and has an empty default value. If you specify a depth value when using the action, it will be passed as the value for the **--depth** parameter of the git clone command. Otherwise, the clone will be done with the default depth, which is the full history.
 
 ## How to use this action?
 
@@ -35,7 +34,7 @@ You can use one of those as reference:
 
 ```bash
 - name: Clone GuillaumeFalourd/poc-github-actions PUBLIC repository
-  uses: GuillaumeFalourd/clone-github-repo-action@v2
+  uses: GuillaumeFalourd/clone-github-repo-action@v2.1
   with:
     depth: 1
     owner: 'GuillaumeFalourd'
@@ -48,7 +47,7 @@ To use this action to clone a `PRIVATE` repository the Github User/Admin has acc
 
 ```bash
 - name: Clone GuillaumeFalourd/formulas-training PRIVATE repository
-  uses: GuillaumeFalourd/clone-github-repo-action@v2
+  uses: GuillaumeFalourd/clone-github-repo-action@v2.1
   with:
     owner: 'GuillaumeFalourd'
     repository: 'formulas-training'
