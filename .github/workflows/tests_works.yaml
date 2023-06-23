@@ -17,14 +17,14 @@ jobs:
         uses: whyakari/github-repo-action@v3
         with:
           owner: 'whyakari'
-          repository: 'github-actions'
+          repository: 'github-repo-action'
       
       - name: Access cloned repository content
         run: |
           echo "ROOT"
           ls -la
           echo "CLONED REPO"
-          cd poc-github-actions
+          cd github-repo-action
           ls -la
 
   job-public-repo-macos:
@@ -35,14 +35,14 @@ jobs:
         uses: whyakari/github-repo-action@v3
         with:
           owner: 'whyakari'
-          repository: 'github-actions'
+          repository: 'github-repo-action'
       
       - name: Access cloned repository content
         run: |
           echo "ROOT"
           ls -la
           echo "CLONED REPO"
-          cd github-actions
+          cd github-repo-action
           ls -la
 
   job-public-repo-windows:
@@ -53,13 +53,13 @@ jobs:
         uses: whyakari/github-repo-action@v3
         with:
           owner: 'whyakari'
-          repository: 'poc-github-actions'
+          repository: 'github-repo-action'
       
       - name: Access cloned repository content
         run: |
           echo "ROOT"
           ls -la
           echo "CLONED REPO"
-          cd github-actions
+          cd github-repo-action
           ls -la
         shell: bash
