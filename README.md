@@ -71,10 +71,16 @@ cd <repository-name>
     ls -la
 ```
 
+## Licensed
+
+☞ This repository uses the [Apache License 2.0](https://github.com/GuillaumeFalourd/aws-cliaction/blob/main/LICENSE)
+
 ## Contributing
 
 ☞ [Guidelines](https://github.com/GuillaumeFalourd/clone-github-repo-action/blob/main/CONTRIBUTING.md)
 
-## Licensed
+<a href="https://github.com/GuillaumeFalourd/useful-actions/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=GuillaumeFalourd/useful-actions" />
+</a>
 
-☞ This repository uses the [Apache License 2.0](https://github.com/GuillaumeFalourd/aws-cliaction/blob/main/LICENSE)
+(Made with [contributors-img](https://contrib.rocks))
