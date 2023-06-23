@@ -31,15 +31,15 @@ You can use one of those as reference:
 - [Clone Public Repo Workflow](https://github.com/GuillaumeFalourd/clone-github-repo-action/blob/main/.github/workflows/public-repo.yml)
 - [Clone Private Repo Workflow](https://github.com/GuillaumeFalourd/clone-github-repo-action/blob/main/.github/workflows/private-repo.yml)
 
-### For a public repository
+### For a public repository (with depth)
 
 ```bash
 - name: Clone GuillaumeFalourd/poc-github-actions PUBLIC repository
   uses: GuillaumeFalourd/clone-github-repo-action@v2
   with:
+    depth: 1
     owner: 'GuillaumeFalourd'
     repository: 'poc-github-actions'
-    depth: 1
 ```
 
 ### For a private repository
