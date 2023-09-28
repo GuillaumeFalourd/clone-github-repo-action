@@ -1,4 +1,4 @@
-name: 'Clone Github Repo Action'
+name: 'Clone Github Repo'
 
 description: "Github Action to clone a public or private Github repository and access its content on others repositories' workflows."
 
