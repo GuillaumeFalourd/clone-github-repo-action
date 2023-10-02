@@ -22,7 +22,7 @@ Field | Mandatory | Observation
 ------------ | ------------  | -------------
 **owner** | YES | Ex: `octocat`
 **repository** | YES | Ex: `clone-github-repo-action` | 
-**branch** | NO | 'main' Ex: clone branch main (default) if not defined arg
+**branch** | NO | Ex: `main` (default)
 **depth** | NO | 1 `Ex: most recent commit`
 **access-token** | NO | [How to create a PAT](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
 
