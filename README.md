@@ -22,6 +22,7 @@ Field | Mandatory | Observation
 ------------ | ------------  | -------------
 **owner** | YES | Ex: `octocat`
 **repository** | YES | Ex: `clone-github-repo-action` | 
+**branch** | NO | 'main' Ex: clone branch main (default) if not defined arg
 **depth** | NO | 1 `Ex: most recent commit`
 **access-token** | NO | [How to create a PAT](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
 
@@ -37,6 +38,7 @@ You can use one of those as reference:
   uses: GuillaumeFalourd/clone-github-repo-action@v2.1
   with:
     depth: 1
+    branch: 'main'
     owner: 'GuillaumeFalourd'
     repository: 'poc-github-actions'
 ```
