@@ -17,6 +17,7 @@ jobs:
         uses: GuillaumeFalourd/clone-github-repo-action@main
         with:
           owner: 'GuillaumeFalourd'
+          branch: master
           repository: 'formulas-training'
           access-token: ${{ secrets.ACCESS_TOKEN }}
       
@@ -36,6 +37,7 @@ jobs:
         uses: GuillaumeFalourd/clone-github-repo-action@main
         with:
           owner: 'GuillaumeFalourd'
+          branch: master
           repository: 'formulas-training'
           access-token: ${{ secrets.ACCESS_TOKEN }}
       
@@ -55,6 +57,7 @@ jobs:
         uses: GuillaumeFalourd/clone-github-repo-action@main
         with:
           owner: 'GuillaumeFalourd'
+          branch: master
           repository: 'formulas-training'
           access-token: ${{ secrets.ACCESS_TOKEN }}
       
