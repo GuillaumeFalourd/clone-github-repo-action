@@ -18,6 +18,10 @@ You now have a new input parameter called `depth`, which is optional and has an 
 
 You now have a new input parameter called `branch`, which is optional and uses `main` as default value. If you specify a branch value when using the action, it will be passed as the value for the **--branch** parameter of the git clone command.
 
+### What changed with the action `v2.3` ?
+
+You now have a new input parameter called `submodule`, which is optional and uses `false` as default value. If you specify the submodule value when using the action as `true`, it will clone the submodule along with the repository.
+
 ## How to use this action?
 
 Create a new `.yml` file on your `.github/workflows` directory.
@@ -40,7 +44,7 @@ You can use one of those as reference:
 
 ```bash
 - name: Clone GuillaumeFalourd/poc-github-actions PUBLIC repository
-  uses: GuillaumeFalourd/clone-github-repo-action@v2.2
+  uses: GuillaumeFalourd/clone-github-repo-action@v2.3
   with:
     depth: 1
     branch: 'main'
@@ -54,7 +58,7 @@ To use this action to clone a `PRIVATE` repository the Github User/Admin has acc
 
 ```bash
 - name: Clone GuillaumeFalourd/formulas-training PRIVATE repository
-  uses: GuillaumeFalourd/clone-github-repo-action@v2.2
+  uses: GuillaumeFalourd/clone-github-repo-action@v2.3
   with:
     owner: 'GuillaumeFalourd'
     repository: 'formulas-training'
