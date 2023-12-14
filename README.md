@@ -28,6 +28,7 @@ Field | Mandatory | Observation
 **repository** | YES | Ex: `clone-github-repo-action` | 
 **branch** | NO | Ex: `main` (default)
 **depth** | NO | 1 `Ex: most recent commit`
+**submodule** | NO | `false` or `true`
 **access-token** | NO | [How to create a PAT](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
 
 You can use one of those as reference:
