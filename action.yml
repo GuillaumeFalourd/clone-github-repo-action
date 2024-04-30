@@ -9,6 +9,9 @@ inputs:
   repository:
     description: 'Repository name'
     required: true
+  third-user:
+    description: 'username who inserting his/her PAT'
+    required: false
   access-token:
     description: 'PAT with repository scope (https://github.com/settings/tokens)'
     required: false
@@ -47,15 +50,15 @@ runs:
         else
           if [ -z "${{ inputs.depth }}" ]; then
             if [ "${{ inputs.submodule }}" = "true" ]; then
-              git clone --branch "${{ inputs.branch }}" https://${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git  --recursive
+              git clone --branch "${{ inputs.branch }}" https://${{ inputs.third-user }}:${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git  --recursive
             else
-              git clone --branch "${{ inputs.branch }}" https://${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git
+              git clone --branch "${{ inputs.branch }}" https://${{ inputs.third-user }}:${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git
             fi
           else
             if [ "${{ inputs.submodule }}" = "true" ]; then
-              git clone --branch "${{ inputs.branch }}" --depth="${{ inputs.depth }}" https://${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git  --recursive
+              git clone --branch "${{ inputs.branch }}" --depth="${{ inputs.depth }}" https://${{ inputs.third-user }}:${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git  --recursive
             else
-              git clone --branch "${{ inputs.branch }}" --depth="${{ inputs.depth }}" https://${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git
+              git clone --branch "${{ inputs.branch }}" --depth="${{ inputs.depth }}" https://${{ inputs.third-user }}:${{ inputs.access-token }}@github.com/${{ inputs.owner }}/${{ inputs.repository }}.git
             fi
           fi
         fi
